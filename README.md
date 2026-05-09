@@ -1,11 +1,11 @@
-# StegVault 🛡️
+# pIXEL GHOST 🛡️
 
-**StegVault** is an advanced, cinematic, and military-grade Image Steganography + Cryptography platform. It allows users to encrypt sensitive data (text or binary files) using AES-256-GCM and then invisibly embed that data into ordinary-looking PNG images using Least-Significant-Bit (LSB) steganography.
+**pixelghost** is an advanced, cinematic, and military-grade Image Steganography + Cryptography platform. It allows users to encrypt sensitive data (text or binary files) using AES-256-GCM and then invisibly embed that data into ordinary-looking PNG images using Least-Significant-Bit (LSB) steganography.
 
 ---
 
 ## 🚀 Vision
-Built for the privacy-conscious, StegVault operates 100% locally in your browser. No data ever leaves your computer. Its design is inspired by high-end cybersecurity dashboards with a sleek, cyberpunk aesthetic.
+Built for the privacy-conscious, PixelGhost operates 100% locally in your browser. No data ever leaves your computer. Its design is inspired by high-end cybersecurity dashboards with a sleek, cyberpunk aesthetic.
 
 ---
 
