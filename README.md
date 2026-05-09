@@ -1,4 +1,4 @@
-# pIXEL GHOST 🛡️
+# PIXEL GHOST 🛡️
 
 **pixelghost** is an advanced, cinematic, and military-grade Image Steganography + Cryptography platform. It allows users to encrypt sensitive data (text or binary files) using AES-256-GCM and then invisibly embed that data into ordinary-looking PNG images using Least-Significant-Bit (LSB) steganography.
 
