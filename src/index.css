@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Core Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Cyber Palette */
+  --color-cyber-cyan: #22d3ee;
+  --color-cyber-blue: #3b82f6;
+  --color-cyber-purple: #8b5cf6;
+  --color-cyber-emerald: #10b981;
+  --color-cyber-amber: #f59e0b;
+
+  --color-cyber-bg: var(--cyber-bg);
+  --color-cyber-surface: var(--cyber-surface);
+  --color-cyber-grid: var(--cyber-grid);
+}
+
+/* ===================================================== */
+/* BASE THEME */
+/* ===================================================== */
+
+@layer base {
+  :root {
+    /* ===== LIGHT MODE ===== */
+
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --primary: 195 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 94%;
+
+    --muted: 210 25% 94%;
+    --muted-foreground: 215 18% 42%;
+
+    --accent: 262 83% 58%;
+
+    --border: 214 25% 88%;
+    --ring: 195 100% 45%;
+
+    --radius: 0.9rem;
+
+    /* Cyber surfaces */
+    --cyber-bg: #f4f7fb;
+    --cyber-surface: #ffffff;
+    --cyber-grid: rgba(15, 23, 42, 0.04);
+  }
+
+  .dark {
+    /* ===== DARK MODE ===== */
+
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --primary: 190 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 14%;
+
+    --muted: 222 28% 14%;
+    --muted-foreground: 215 16% 68%;
+
+    --accent: 265 89% 68%;
+
+    --border: 222 30% 18%;
+    --ring: 190 100% 55%;
+
+    /* Cyber dark surfaces */
+    --cyber-bg: #060816;
+    --cyber-surface: #0b1220;
+    --cyber-grid: rgba(34, 211, 238, 0.05);
+  }
+}
+
+/* ===================================================== */
+/* GLOBAL STYLES */
+/* ===================================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 transition-colors duration-200;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans selection:bg-primary/20;
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(34, 211, 238, 0.08),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba(139, 92, 246, 0.06),
+        transparent 35%
+      ),
+      linear-gradient(
+        to bottom,
+        #f8fafc,
+        #eef2ff
+      );
+
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-color: #060816;
+
+    background-image:
+      linear-gradient(
+        rgba(34, 211, 238, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(34, 211, 238, 0.05) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at top left,
+        rgba(34, 211, 238, 0.18),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba(139, 92, 246, 0.14),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at bottom,
+        rgba(59, 130, 246, 0.10),
+        transparent 40%
+      );
+
+    background-size: 38px 38px;
+    background-attachment: fixed;
+  }
+}
+
+/* ===================================================== */
+/* UI UTILITIES */
+/* ===================================================== */
+
+.glass {
+  @apply border border-border/50 backdrop-blur-xl;
+
+  background: color-mix(
+    in oklab,
+    hsl(var(--card)) 88%,
+    transparent
+  );
+}
+
+.cyber-glow {
+  box-shadow:
+    0 0 18px rgba(34, 211, 238, 0.25),
+    0 0 40px rgba(59, 130, 246, 0.08);
+}
+
+.neon-border {
+  @apply border-border/60 transition-all duration-300;
+}
+
+.neon-text {
+  @apply text-primary
+         drop-shadow-[0_0_10px_rgba(34,211,238,0.35)];
+}
+
+.secure-panel {
+  @apply rounded-2xl
+         border
+         border-border/60
+         backdrop-blur-xl;
+
+  background: hsl(var(--card));
+}
+
+.secure-cta {
+  @apply bg-primary
+         text-primary-foreground
+         transition-all
+         duration-200
+         hover:brightness-110
+         hover:shadow-lg
+         active:scale-[0.98];
+}
+
+/* ===================================================== */
+/* SCANLINE EFFECT */
+/* ===================================================== */
+
+.scanline-overlay {
+  position: relative;
+}
+
+.scanline-overlay::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(34, 211, 238, 0.05) 0px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+.dark .scanline-overlay::after {
+  opacity: 0.18;
+}
+
+/* ===================================================== */
+/* ANIMATIONS */
+/* ===================================================== */
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  border-right: 2px solid hsl(var(--primary));
+
+  animation:
+    typing 2s steps(40, end),
+    blink 0.6s step-end infinite;
+}
+
+/* ===================================================== */
+/* SCROLLBAR */
+/* ===================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20
+         rounded-full
+         hover:bg-primary/40
+         transition-colors;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

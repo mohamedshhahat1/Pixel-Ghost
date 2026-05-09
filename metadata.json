@@ -1,0 +1,6 @@
+{
+  "name": "StegVault",
+  "description": "Advanced Image Steganography + AES-256 Encryption Platform. Hide secrets inside ordinary images with military-grade security.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
